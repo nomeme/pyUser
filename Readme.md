@@ -61,7 +61,7 @@ Pin-Priority: 650
 
 Then run:
 
-```
+```bash
 sudo apt-get update
 ```
 
@@ -70,13 +70,13 @@ sudo apt-get update
 In order to install `python3-libuser` we need to update the gcc libs.
 This causes further issues. The fixes are documented here.
 
-```
+```bash
 sudo apt install gcc-8-base
 ```
 
 Installing the `gcc-8-base` causes additional issues causing udev to fail to configure correctly.
 
-```
+```bash
 systemd-journald[2396]: Assertion 'clock_gettime(map_clock_id(clock_id), &ts) == 0' failed at ../src/basic/time-util.c:55,
 ```
 
@@ -85,7 +85,7 @@ The issue seems to be that the system call `clock_gettime/clock_gettime64` is no
 
 This can be fixed commenting the line containing `SystemCallFilter = ` in following files.
 
-```
+```bash
 /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 /lib/systemd/system/sysinit.target.wants/systemd-udevd.service
 ```
@@ -94,7 +94,26 @@ This can be fixed commenting the line containing `SystemCallFilter = ` in follow
 
 After all of this we can now install python3-libuser
 
-```
+```bash
 sudo apt install python3-libuser
 ```
 
+## Build the package
+
+This library supports building a python package.
+
+### Install the build tools
+
+First install the build tools if necessary.
+
+```bash
+python3 -m pip install --upgrade build
+```
+
+### Building the package
+
+Build the package in the project root directory
+
+```bash
+python3 -m build
+```
