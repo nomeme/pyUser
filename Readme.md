@@ -2,11 +2,17 @@
 
 Easy, object-oriented API to modify system users on unix systems.
 
-Uses the python3 API of [libuser](https://pagure.io/libuser) with the implementation [here](https://pagure.io/libuser/blob/master/f/python) and documentation [here](https://pagure.io/libuser/blob/master/f/python/modules.txt).
-
 The `pyUser` library provides object-oriented classes for `User` and `Group`.
 
 Take a look at the [testcases](tests/test.py) for example usage.
+
+## Depenencies
+
+Uses the python3 API of [libuser](https://pagure.io/libuser) which might be licensed under [GPLv2](https://pagure.io/libuser/blob/master/f/COPYING) with the implementation [here](https://pagure.io/libuser/blob/master/f/python) and documentation [here](https://pagure.io/libuser/blob/master/f/python/modules.txt).
+
+## License
+
+This work is licensed under the [MIT license](LICENSE).
 
 ## Setup
 
